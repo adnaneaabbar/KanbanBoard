@@ -24,4 +24,9 @@ public class ProjectTaskService {
 
         return projectTaskRepository.findAll();
     }
+
+    public ProjectTask findById(Long id){
+
+        return projectTaskRepository.getById(id);
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.xml.ws.Response;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,5 +44,12 @@ public class ProjectTaskController {
     public Iterable<ProjectTask> getAllProjectTasks(){
 
         return projectTaskService.findAll();
+    }
+
+    @GetMapping("/{pt_id}")
+    public ResponseEntity<?> getProjectTaskById(@PathVariable Long pt_id){
+
+        ProjectTask projectTask = projectTaskService.findById(pt_id);
+        return new ResponseEntity<ProjectTask>(projectTask, HttpStatus.OK);
     }
 }
