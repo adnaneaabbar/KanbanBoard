@@ -38,4 +38,10 @@ public class ProjectTaskController {
 
         return new ResponseEntity<ProjectTask>(newProjectTask, HttpStatus.CREATED);
     }
+
+    @GetMapping("/all")
+    public Iterable<ProjectTask> getAllProjectTasks(){
+
+        return projectTaskService.findAll();
+    }
 }
