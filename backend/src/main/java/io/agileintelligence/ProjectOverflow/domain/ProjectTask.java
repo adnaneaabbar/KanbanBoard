@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 public class ProjectTask {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
