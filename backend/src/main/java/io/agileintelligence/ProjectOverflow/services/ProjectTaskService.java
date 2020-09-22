@@ -14,7 +14,6 @@ public class ProjectTaskService {
     public ProjectTask saveOrUpdateProjectTask(ProjectTask projectTask){
 
         if(projectTask.getStatus() == null || projectTask.getStatus() == ""){
-
             // if user doesn't specify a status, it goes automatically to to_do
             projectTask.setStatus("TO_DO");
         }
