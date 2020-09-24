@@ -13,9 +13,16 @@ class AddProjectTask extends Component {
             summary: '',
             acceptanceCriteria: '',
             status: '',
+            errors: {},
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors) {
+            this.setState({ errors: nextProps.errors });
+        }
     }
 
     onChange(e) {
@@ -35,6 +42,7 @@ class AddProjectTask extends Component {
     }
 
     render() {
+        const err = this.state.errors;
         return (
             <div className='addProjectTask'>
                 <div className='container'>
@@ -50,12 +58,22 @@ class AddProjectTask extends Component {
                                 <div className='form-group'>
                                     <input
                                         type='text'
-                                        className='form-control form-control-lg'
+                                        className={classnames(
+                                            'form-control form-control-lg',
+                                            {
+                                                'is-invalid': err.summary,
+                                            }
+                                        )}
                                         name='summary'
                                         value={this.state.summary}
                                         onChange={this.onChange}
                                         placeholder='Project Task summary'
                                     />
+                                    {err.summary && (
+                                        <div className='invalid-feedback'>
+                                            {err.summary}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className='form-group'>
                                     <textarea
