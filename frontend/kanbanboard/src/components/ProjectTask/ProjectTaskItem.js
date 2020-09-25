@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 
 class ProjectTaskItem extends Component {
     render() {
+        const project_task = this.props.project_task;
         return (
             <div className='card mb-1 bg-light'>
                 <div className='card-header text-primary'>
-                    ID: projectSequence
+                    ID: {project_task.id}
                 </div>
                 <div className='card-body bg-light'>
-                    <h5 className='card-title'>summary</h5>
+                    <h5 className='card-title'>{project_task.summary}</h5>
                     <p className='card-text text-truncate '>
-                        acceptanceCriteria
+                        {project_task.acceptanceCriteria}
                     </p>
                     <a href='#' className='btn btn-warning'>
                         View / Update
