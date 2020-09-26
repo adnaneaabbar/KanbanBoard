@@ -13,7 +13,7 @@ class ProjectTaskItem extends Component {
         const project_task = this.props.project_task;
         return (
             <div className='card mb-1 bg-light'>
-                <div className='card-header text-primary'>
+                <div className='card-header text-danger'>
                     ID: {project_task.id}
                 </div>
                 <div className='card-body bg-light'>
@@ -21,9 +21,12 @@ class ProjectTaskItem extends Component {
                     <p className='card-text text-truncate '>
                         {project_task.acceptanceCriteria}
                     </p>
-                    <a href='#' className='btn btn-warning'>
+                    <Link
+                        to={`updateProjectTask/${project_task.id}`}
+                        className='btn btn-warning'
+                    >
                         View / Update
-                    </a>
+                    </Link>
 
                     <button
                         className='btn btn-danger ml-4'

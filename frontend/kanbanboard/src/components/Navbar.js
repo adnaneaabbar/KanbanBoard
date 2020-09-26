@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     return (
-        <nav className='navbar navbar-expand-sm navbar-dark bg-primary mb-4'>
+        <nav className='navbar navbar-expand-sm navbar-dark bg-danger mb-4'>
             <div className='container'>
-                <a className='navbar-brand' href='#'>
+                <Link className='navbar-brand' to='/'>
                     KanbanBoard
-                </a>
+                </Link>
                 <button
                     className='navbar-toggler'
                     type='button'

@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getProjectTask } from '../../actions/projectTaskActions';
+import classnames from 'classnames';
 
 class UpdateProjectTask extends Component {
+    componentDidMount() {
+        const pt_id = this.props.match.params.pt_id;
+        this.props.getProjectTask(pt_id);
+    }
+
     render() {
         return (
             <div className='updateProjectTask'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-8 m-auto'>
-                            <Link to='/' className='btn btn-light'>
+                            <Link to='/' className='btn btn-danger'>
                                 Back to Board
                             </Link>
                             <h4 className='display-4 text-center'>
-                                Add /Update Project Task
+                                Update a Project Task
                             </h4>
                             <form>
                                 <div className='form-group'>
@@ -45,7 +54,7 @@ class UpdateProjectTask extends Component {
                                 </div>
                                 <input
                                     type='submit'
-                                    className='btn btn-primary btn-block mt-4'
+                                    className='btn btn-danger btn-block mt-4'
                                 />
                             </form>
                         </div>
@@ -56,4 +65,15 @@ class UpdateProjectTask extends Component {
     }
 }
 
-export default UpdateProjectTask;
+UpdateProjectTask.propTypes = {
+    getProjectTask: PropTypes.func.isRequired,
+    project_task: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+    project_task: state.project_task,
+    errors: state.errors,
+});
+
+export default connect(mapStateToProps, { getProjectTask })(UpdateProjectTask);

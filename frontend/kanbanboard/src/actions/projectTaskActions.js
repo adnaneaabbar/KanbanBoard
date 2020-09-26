@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { DELETE_PROJECT_TASK, GET_ERRORS, GET_PROJECT_TAKS } from './types';
+import {
+    DELETE_PROJECT_TASK,
+    GET_ERRORS,
+    GET_PROJECT_TASKS,
+    GET_PROJECT_TASK,
+} from './types';
 
 export const addProjectTask = (projectTask, history) => async (dispatch) => {
     try {
@@ -20,7 +25,7 @@ export const addProjectTask = (projectTask, history) => async (dispatch) => {
 export const getBacklog = () => async (dispatch) => {
     const res = await axios.get('http://localhost:8085/api/board/all');
     dispatch({
-        type: GET_PROJECT_TAKS,
+        type: GET_PROJECT_TASKS,
         payload: res.data,
     });
 };
@@ -36,5 +41,17 @@ export const deleteProjectTask = (pt_id) => async (dispatch) => {
             type: DELETE_PROJECT_TASK,
             payload: pt_id,
         });
+    }
+};
+
+export const getProjectTask = (pt_id, history) => async (dispatch) => {
+    try {
+        const res = await axios.get(`http://localhost:8085/api/board/${pt_id}`);
+        dispatch({
+            type: GET_PROJECT_TASK,
+            payload: res.data,
+        });
+    } catch (error) {
+        history.push('/');
     }
 };

@@ -48,7 +48,7 @@ class Board extends Component {
                                 <div className='col-md-4'>
                                     <div className='card text-center mb-2'>
                                         <div className='card-header bg-secondary text-white'>
-                                            <h3>TO DO</h3>
+                                            <h3>To Do</h3>
                                         </div>
                                     </div>
                                     {todoItems}
@@ -80,7 +80,7 @@ class Board extends Component {
 
         return (
             <div className='container'>
-                <Link to='/addProjectTask' className='btn btn-primary mb-3'>
+                <Link to='/addProjectTask' className='btn btn-danger mb-3'>
                     <i className='fas fa-plus-circle'> Create Project Task</i>
                 </Link>
                 <br />

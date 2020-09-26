@@ -48,11 +48,11 @@ class AddProjectTask extends Component {
                 <div className='container'>
                     <div className='row'>
                         <div className='col-md-8 m-auto'>
-                            <Link to='/' className='btn btn-light'>
+                            <Link to='/' className='btn btn-danger'>
                                 Back to Board
                             </Link>
                             <h4 className='display-4 text-center'>
-                                Add /Update Project Task
+                                Add a Project Task
                             </h4>
                             <form onSubmit={this.onSubmit}>
                                 <div className='form-group'>
@@ -101,7 +101,7 @@ class AddProjectTask extends Component {
                                 </div>
                                 <input
                                     type='submit'
-                                    className='btn btn-primary btn-block mt-4'
+                                    className='btn btn-danger btn-block mt-4'
                                 />
                             </form>
                         </div>
