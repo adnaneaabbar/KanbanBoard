@@ -1,4 +1,4 @@
-import { GET_PROJECT_TAKS } from '../actions/types';
+import { DELETE_PROJECT_TASK, GET_PROJECT_TAKS } from '../actions/types';
 
 const initialState = {
     project_tasks: [],
@@ -10,6 +10,13 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 project_tasks: action.payload,
+            };
+        case DELETE_PROJECT_TASK:
+            return {
+                ...state,
+                project_tasks: state.project_tasks.filter(
+                    (pt) => pt.id !== action.payload //payload here == deleted pt_id
+                ),
             };
 
         default:

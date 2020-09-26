@@ -1,2 +1,3 @@
 export const GET_ERRORS = 'GET_ERRORS';
 export const GET_PROJECT_TAKS = "GET_PROJECT_TAKS";
+export const DELETE_PROJECT_TASK = "DELETE_PROJECT_TASK";
